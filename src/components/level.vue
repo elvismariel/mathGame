@@ -1,26 +1,41 @@
 <template>
     <div class="hello">
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">Fácil</label>
+        <div v-for="(level, index) in levels" class="custom-control custom-radio custom-control-inline" v-bind:key="index">
+            <input type="radio" v-on:click="showOperation" id="index" name="levelItem" value="index" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">{{level.name}}</label>
         </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">Médio</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline3">Difícil</label>
-        </div>
+        <p v-if="levelItem > 0">
+            <Operation />
+        </p>
     </div>
 </template>
 
 <script>
+import Operation from './operation';
+
 export default {
-    name: 'Level'
+    name: 'Level',
+    components: {
+        Operation
+    },
+    data() {
+        return {
+            levels: [
+                {name: "Fácil"},{name: "Médio"},{name: "Difícil"}
+            ]
+        }
+    },
+    methods: {
+        showOperation() {
+            console.log(this.levelItem)
+            //this.levelItem = level;
+        }
+    }
 }
 </script>
 
 <style scoped>
-
+    div.hello {
+        margin-bottom: 25px;
+    }
 </style>

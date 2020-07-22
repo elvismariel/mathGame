@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import Level from './components/level'
+
+import Level from './components/level';
 
 export default {
   name: 'App',
