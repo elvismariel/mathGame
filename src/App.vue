@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Level />
+    <Operation />
   </div>
 </template>
 
 <script>
 
-import Level from './components/level';
+import Operation from './components/operation';
 
 export default {
   name: 'App',
   components: {
-    Level
+    Operation
   }
 }
 </script>
